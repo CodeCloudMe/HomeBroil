@@ -6,6 +6,7 @@
 
 source $OPENSHIFT_HOMEDIR/python/virtenv/bin/activate
 cd $OPENSHIFT_REPO_DIR/wsgi/mysite
+pip install -r requirements.txt
 python manage.py syncdb --noinput
 # GETTING-STARTED: change 'db.sqlite3' to your sqlite3 database:
 if [ ! -f $OPENSHIFT_DATA_DIR/db.sqlite3 ]
