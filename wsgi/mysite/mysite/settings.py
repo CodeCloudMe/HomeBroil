@@ -6,7 +6,7 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
 ALLOWED_HOSTS = ["*"]
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 """
 DATABASES = {
