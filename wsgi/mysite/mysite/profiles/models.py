@@ -24,8 +24,8 @@ class Profile(models.Model):
     website = models.CharField(max_length=250, blank=True)
     twitter_username = models.CharField("Twitter Username", max_length=100, blank=True)
 
-    created_at = models.DateTimeField(default=timezone.now)
-    modified_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now, blank=True)
+    modified_at = models.DateTimeField(default=timezone.now, blank=True)
 
     def save(self, *args, **kwargs):
         self.modified_at = timezone.now()

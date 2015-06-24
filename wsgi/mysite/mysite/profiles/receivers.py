@@ -9,4 +9,5 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def handle_user_save(sender, created, instance, **kwargs):
-    Profile.objects.get_or_create(user=instance)
+    if created:
+        Profile.objects.get_or_create(user=instance)
