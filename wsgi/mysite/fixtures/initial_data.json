@@ -3,7 +3,7 @@
         "pk": 1,
         "model": "sites.site",
         "fields": {
-            "domain": "localhost:8000",
+            "domain": "lo",
             "name": "Starter Project"
         }
     },
@@ -11,7 +11,7 @@
         "pk": 2,
         "model": "sites.site",
         "fields": {
-            "domain": "example.com",
+            "domain": "homefries-reslift.rhcloud.com",
             "name": "Starter Project"
         }
     }
