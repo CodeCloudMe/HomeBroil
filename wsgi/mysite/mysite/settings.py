@@ -5,6 +5,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
+ALLOWED_HOSTS = ["*"]
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 """
