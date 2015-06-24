@@ -14,7 +14,9 @@ DATABASES = {
         "NAME": "dev.db",
     }
 }
+
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -25,6 +27,7 @@ DATABASES = {
         'PORT': os.environ['OPENSHIFT_MYSQL_DB_PORT']
     }
 }
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -65,18 +68,16 @@ MEDIA_URL = "/site_media/media/"
 # Don"t put anything in this directory yourself; store your static files
 # in apps" "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-#STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
-STATIC_ROOT = PACKAGE_ROOT + '/static/'
+STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/static/"
+STATIC_URL = "/site_media/static/"
 
 # Additional locations of static files
-"""
 STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "static"),
 ]
-"""
 
 # List of finder classes that know how to find static files in
 # various locations.
