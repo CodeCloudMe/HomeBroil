@@ -4,7 +4,7 @@
         "model": "sites.site",
         "fields": {
             "domain": "localhost:8000",
-            "name": "Pinax Teams Demo [localhost]"
+            "name": "Starter Project"
         }
     },
     {
@@ -12,7 +12,7 @@
         "model": "sites.site",
         "fields": {
             "domain": "example.com",
-            "name": "Pinax Teams Demo"
+            "name": "Starter Project"
         }
     }
 ]
