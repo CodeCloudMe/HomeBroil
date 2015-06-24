@@ -28,7 +28,14 @@
                                         <a href="{% url 'team_detail' membership.team.slug %}">{{ membership.team.name }}</a>
                                         {% if membership.team.description %}<br>{{ membership.team.description }}{% endif %}
                                     </td>
-                                  
+                                    <td>
+                                        <span class="label{% if membership.state == 'invited' %} label-info{% endif %}">{{ membership.get_state_display }}</span>
+                                    </td>
+                                    <td>
+                                        {% if membership.state == "manager" or user.is_staff %}
+                                            {% if membership.team.applicants %}{{ membership.team.applicants.count }} applicant{{ membership.team.applicants.count|pluralize }}{% endif %}
+                                        {% endif %}
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </table>
