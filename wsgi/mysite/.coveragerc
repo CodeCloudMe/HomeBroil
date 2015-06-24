@@ -1,0 +1,8 @@
+[run]
+source = mysite
+omit = mysite/wsgi.py,mysite/urls.py,mysite/startup.py,mysite/settings*
+branch = true
+
+[report]
+omit = mysite/wsgi.py,mysite/urls.py,mysite/startup.py,mysite/settings*
+
