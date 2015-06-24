@@ -2,8 +2,8 @@ import os
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-#PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
-PACKAGE_ROOT = os.environ['OPENSHIFT_REPO_DIR']+"wsgi/mysite/mysite"
+PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+#PACKAGE_ROOT = os.environ['OPENSHIFT_REPO_DIR']+"wsgi/mysite/mysite"
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
