@@ -1,0 +1,58 @@
+Searching 92 files for "myproject.settings"
+
+/Users/nimblethreethousand/Desktop/gsta/pythons/homefries/wsgi/application:
+    5  
+    6  ## GETTING-STARTED: make sure the next line points to your settings.py:
+    7: os.environ['DJANGO_SETTINGS_MODULE'] = 'myproject.settings'
+    8  ## GETTING-STARTED: make sure the next line points to your django project dir:
+    9  sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi', 'mysite'))
+
+/Users/nimblethreethousand/Desktop/gsta/pythons/homefries/wsgi/myproject/manage.py:
+    5  if __name__ == "__main__":
+    6      # GETTING-STARTED: change 'myproject' to your project name:
+    7:     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+    8  
+    9      from django.core.management import execute_from_command_line
+
+/Users/nimblethreethousand/Desktop/gsta/pythons/homefries/wsgi/myproject/myproject/wsgi.py:
+   10  import os
+   11  # GETTING-STARTED: change 'myproject' to your project name:
+   12: os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+   13  
+   14  from django.core.wsgi import get_wsgi_application
+
+3 matches across 3 files
+
+
+Searching 92 files for "site_media"
+
+/Users/nimblethreethousand/Desktop/gsta/pythons/homefries/wsgi/mysite/.gitignore:
+    1  dev.db
+    2  *.pyc
+    3: site_media/
+    4  htmlcov
+    5  .coverage
+
+/Users/nimblethreethousand/Desktop/gsta/pythons/homefries/wsgi/mysite/mysite/settings.py:
+   48  # Absolute filesystem path to the directory that will hold user-uploaded files.
+   49  # Example: "/home/media/media.lawrence.com/media/"
+   50: MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
+   51  
+   52  # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+   53  # trailing slash.
+   54  # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+   55: MEDIA_URL = "/site_media/media/"
+   56  
+   57  # Absolute path to the directory static files should be collected to.
+   ..
+   59  # in apps" "static/" subdirectories and in STATICFILES_DIRS.
+   60  # Example: "/home/media/media.lawrence.com/static/"
+   61: STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+   62  
+   63  # URL prefix for static files.
+   64  # Example: "http://media.lawrence.com/static/"
+   65: STATIC_URL = "/static/"
+   66  
+   67  # Additional locations of static files
+
+5 matches across 2 files
