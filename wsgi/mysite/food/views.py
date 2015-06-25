@@ -51,6 +51,13 @@ class GrubListView(ListView):
     context_object_name = "grubs"
 
 
+class GrubDetailView(DetailView):
+
+    model = Grub
+    slug_url_kwarg = "id"
+    slug_field = "id"
+    context_object_name = "grub"
+
 
 class GrubEditView(LoginRequiredMixin, UpdateView):
 

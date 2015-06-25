@@ -18,6 +18,9 @@ class GrubForm(forms.ModelForm):
             "description",
             "exp_date",
             "pub_date",
+            "feeds",
+            "price",
+            "location",
         ]
     
     """

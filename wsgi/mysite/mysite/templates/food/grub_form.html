@@ -47,21 +47,31 @@
                {{ form.title|bootstrap }}
                 <div id="div_id_avatar" class="control-group">
                     <label for="id_avatar" class="control-label">
-                        Avatar
+                        Photo
                     </label>
                     <div class="controls">
-                        {% if profile.avatar %}
-                            <img class="img-polaroid avatar hidden-phone" src="{% thumbnail profile.avatar 160x160 crop %}" alt="{{ profile.name }}" /><br />
+                        {% if grub.photo %}
+                            <img class="img-polaroid avatar hidden-phone" src="{% thumbnail profile.avatar 160x160 crop %}" alt="{{ grub.title }}" /><br />
                         {% endif %}
                         <span class="btn btn-success btn-avatar btn-small">
                             <span>Select File</span>
-                            <input id="id_avatar" name="avatar" type="file">
+                            <input id="id_avatar" name="photo" type="file">
                         </span>
                         <span class="selected-filename"></span>
                     </div>
                 </div>
 
                 {{ form.description|bootstrap }}
+                <br>
+                 {{ form.feeds|bootstrap }}
+                 <br>
+
+                {{ form.price|bootstrap }}
+
+                <br>
+                {{ form.location|bootstrap }}
+
+
                 <!-- form.member_access|bootstrap -->
                 <!-- form.manager_access|bootstrap -->
 

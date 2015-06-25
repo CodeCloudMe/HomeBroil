@@ -6,7 +6,7 @@ from django.contrib import admin
 
 from .views import homepage
 from .profiles.views import ProfileDetailView, ProfileEditView, ProfileListView
-from food.views import GrubListView, GrubEditView, GrubCreateView
+from food.views import GrubListView, GrubEditView, GrubCreateView, GrubDetailView
 
 urlpatterns = patterns(
     "",
@@ -21,6 +21,7 @@ urlpatterns = patterns(
 
     url(r"^profile/edit/", ProfileEditView.as_view(), name="profiles_edit"),
     url(r"^u/$", ProfileListView.as_view(), name="profiles_list"),
+    url(r"^grub/(?P<id>[\w\._-]+)/$", GrubDetailView.as_view(), name="grubs_detail"),
 
     url(r"^u/(?P<username>[\w\._-]+)/$", ProfileDetailView.as_view(), name="profiles_detail"),
     url(r"^t/", include("teams.urls")),

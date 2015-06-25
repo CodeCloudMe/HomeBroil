@@ -1,1 +1,75 @@
 {% extends "site_base.html" %}
+
+{% load wiki_tags %}
+
+{% block head_title %}{{ grub.title }}{% endblock %}
+
+{% load thumbnail %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-widget">
+                {% if grub.photo %}
+                    <img class="img-polaroid avatar hidden-phone" src="{% thumbnail grub.photo 160x160 crop %}" alt="{{ grub.title }}">
+                {% endif %}
+
+                <h2>{{ grub.title }}</h2>
+
+                <div class="profile">
+                    {% if grub.description %}
+                        <div class="bio">
+                            {{ grub.description|linebreaks }}
+                        </div>
+                    {% endif %}
+                    {% if grub.affiliation %}
+                        <div class="item">
+                            <span class="dim">
+                                <i class="fa fa-institution"></i>
+                            </span>
+                            {{ profile.affiliation }}
+                        </div>
+                    {% endif %}
+                    {% if grub.location %}
+                        <div class="item">
+                            <span class="dim">
+                                <i class="fa fa-map-marker"></i>
+                            </span>
+                            {{ profile.location }}
+                        </div>
+                    {% endif %}
+                    {% if grub.website %}
+                        <div class="item">
+                            <span class="dim">
+                                <i class="fa fa-external-link"></i>
+                            </span>
+                            <a href="{{ profile.website }}">{{ profile.website }}</a>
+                        </div>
+                    {% endif %}
+                    {% if grub.twitter_username %}
+                        <div class="item">
+                            <span class="dim">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            <a href="https://twitter.com/{{ profile.twitter_username }}/">@{{ profile.twitter_username }}</a>
+                        </div>
+                    {% endif %}
+                    <div class="item">
+                        <span class="dim">
+                            <i class="fa fa-clock-o"></i>
+                            Added
+                        </span>
+                        {{ grub.pub_date }}
+                    </div>
+                    {% if request.user == grub.userId %}
+                        <a href="{% url 'profiles_edit' %}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> Edit Grub</a>
+                    {% endif %}
+                </div>
+                <h4>This user also made</h4>
+
+            </div>
+        </div>
+        <!--wiki_for profile.user as wiki -->
+       
+    </div>
+{% endblock %}
