@@ -36,10 +36,11 @@ class Profile(models.Model):
     def create_profile(sender, **kw):
         user = kw["instance"]
         if kw["created"]:
-        profile = Profile(user=user)
-        profile.save()
-    
-    
+            profile = Profile(user=user)
+            profile.save()
+        
+        
+       
 
     @property
     def display_name(self):
