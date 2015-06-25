@@ -1,3 +1,18 @@
+
+<div class="background-holder">
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700%7CKristi%7CNixie+One' rel='stylesheet' type='text/css'>
+
+
+<div class = "headline-container">
+<div class="headline-style-1 parallax-title">
+                            <h1 class="text-white">H o m e B r o i l</h1>
+                            <span class="sub-title text-white">Home-cooked Food On-Demand</span>
+
+</div>
+
+</div>
+                
 {% extends "site_base.html" %}
 
 {% load teams_tags %}
@@ -7,7 +22,6 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-
     {% if user.is_authenticated %}
 
         {% available_teams as available_teams %}
@@ -61,4 +75,7 @@
             </div>
         {% endif %}
     {% endif %}
+
 {% endblock %}
+</div>
+

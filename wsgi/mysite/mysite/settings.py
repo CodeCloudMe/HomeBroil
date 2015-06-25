@@ -156,7 +156,8 @@ INSTALLED_APPS = [
     "mysite",
     "mysite.profiles",
 
-    "food"
+    "food",
+    "south"
 ]
 
 # A sample logging configuration. The only tangible logging
