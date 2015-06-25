@@ -40,4 +40,4 @@ class Profile(models.Model):
         else:
             return self.user.username
 
-    post_save.connect(save, sender=User)
+    post_save.connect(save, self=User)
