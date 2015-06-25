@@ -34,10 +34,12 @@ class Profile(models.Model):
         return super(Profile, self).save(*args, **kwargs)
 
     def create_profile(sender, **kw):
-    user = kw["instance"]
-    if kw["created"]:
+        user = kw["instance"]
+        if kw["created"]:
         profile = Profile(user=user)
         profile.save()
+    
+    
 
     @property
     def display_name(self):
