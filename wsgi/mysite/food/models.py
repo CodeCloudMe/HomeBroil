@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,5 +17,19 @@ class Grub(models.Model):
     description = models.CharField(max_length=500)
     photo = models.ImageField(upload_to=food_upload, blank=True)
     userId = models.IntegerField()
+
+
+    def save(self, *args, **kwargs):
+        self.pub_date = timezone.now()
+        return super(Grub, self).save(*args, **kwargs)
+
+    
+
+
+
+    #
+
+
+     
 
 
