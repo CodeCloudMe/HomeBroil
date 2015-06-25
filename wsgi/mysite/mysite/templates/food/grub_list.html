@@ -7,9 +7,15 @@
 {% block body %}
 
 
-<h1>Food would ideally appear here </h1>
+<h1>Food Available Now </h1>
 
 <div class="row">
+	<br>
+	<button type="button" class="btn btn-primary" onclick="javascript:window.location='/grub/create'">Add Grub</button>
+
+		<br>
+
+		<hr>
         {% for grub in grubs %}
             <div class="col-md-3">
                 <div class="media" style="margin-bottom: 16px;">
