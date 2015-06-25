@@ -29,9 +29,15 @@ class Profile(models.Model):
     created_at = models.DateTimeField(default=timezone.now, null=True)
     modified_at = models.DateTimeField(default=timezone.now, null=True)
 
-    def save(sender, *args, **kwargs):
-        sender.modified_at = timezone.now()
-        return super(Profile, sender).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.modified_at = timezone.now()
+        return super(Profile, self).save(*args, **kwargs)
+
+    def create_profile(sender, **kw):
+    user = kw["instance"]
+    if kw["created"]:
+        profile = Profile(user=user)
+        profile.save()
 
     @property
     def display_name(self):
@@ -40,4 +46,4 @@ class Profile(models.Model):
         else:
             return self.user.username
 
-    post_save.connect(save, sender=User)
+    post_save.connect(create_profile, sender=User)
