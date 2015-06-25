@@ -1,0 +1,20 @@
+{% extends "site_base.html" %}
+
+{% block head_title %}People{% endblock %}
+
+{% load thumbnail %}
+
+{% block body %}
+
+
+<h1>Food would ideally appear here </h1>
+
+   {% for grub in grubs %}
+	 <h2>{{ grub.title }}</h2>
+
+ 	{% endfor %}
+
+
+
+{% endblock %}
+

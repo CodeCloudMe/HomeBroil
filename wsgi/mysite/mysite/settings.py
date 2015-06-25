@@ -8,26 +8,29 @@ BASE_DIR = PACKAGE_ROOT
 ALLOWED_HOSTS = ["*"]
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-"""
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "dev.db",
-    }
-}
 
-"""
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ['OPENSHIFT_APP_NAME'],
-        'USER': os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
-        'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
-        'HOST': os.environ['OPENSHIFT_MYSQL_DB_HOST'],
-        'PORT': os.environ['OPENSHIFT_MYSQL_DB_PORT']
+#print "blah=" + os.environ
+if 'OPENSHIFT_APP_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['OPENSHIFT_APP_NAME'],
+            'USER': os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+            'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+            'HOST': os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+            'PORT': os.environ['OPENSHIFT_MYSQL_DB_PORT']
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "dev.db",
+        }
+    }
+
+
+
 
 
 # Local time zone for this installation. Choices can be found here:
@@ -152,6 +155,8 @@ INSTALLED_APPS = [
     # project
     "mysite",
     "mysite.profiles",
+
+    "food"
 ]
 
 # A sample logging configuration. The only tangible logging

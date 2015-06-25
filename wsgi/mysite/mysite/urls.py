@@ -6,7 +6,7 @@ from django.contrib import admin
 
 from .views import homepage
 from .profiles.views import ProfileDetailView, ProfileEditView, ProfileListView
-
+from food.views import GrubListView
 
 urlpatterns = patterns(
     "",
@@ -14,6 +14,7 @@ urlpatterns = patterns(
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^invites/", include("kaleo.urls")),
+    url(r"^grub/$", GrubListView.as_view(), name="grubs_list"),
 
     url(r"^profile/edit/", ProfileEditView.as_view(), name="profiles_edit"),
     url(r"^u/$", ProfileListView.as_view(), name="profiles_list"),
