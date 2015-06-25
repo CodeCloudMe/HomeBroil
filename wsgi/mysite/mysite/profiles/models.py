@@ -2,6 +2,7 @@ import os
 import uuid
 
 from django.db import models
+from django.db.models.signals import post_save
 from django.utils import timezone
 
 from django.contrib.auth.models import User
@@ -38,3 +39,5 @@ class Profile(models.Model):
             return self.name
         else:
             return self.user.username
+
+    post_save.connect(create_user_profile, sender=User)

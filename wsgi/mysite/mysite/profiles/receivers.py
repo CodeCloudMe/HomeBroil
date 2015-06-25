@@ -11,5 +11,5 @@ from .models import Profile
 def handle_user_save(sender, created, instance, **kwargs):
     if created:
         #Profile.objects.get_or_create(user=instance)
-        profile = Profile(user=User)
+        profile = Profile(user=instance)
         profile.save()
