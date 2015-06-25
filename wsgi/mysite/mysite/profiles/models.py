@@ -18,16 +18,16 @@ def avatar_upload(instance, filename):
 class Profile(models.Model):
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    name = models.CharField(max_length=75, null=True)
-    avatar = models.ImageField(upload_to=avatar_upload, null=True)
-    bio = models.TextField(null=True)
-    affiliation = models.CharField(max_length=100, null=True)
-    location = models.CharField(max_length=100, null=True)
-    website = models.CharField(max_length=250, null=True)
-    twitter_username = models.CharField("Twitter Username", max_length=100, null=True)
+    name = models.CharField(max_length=75, blank=True)
+    avatar = models.ImageField(upload_to=avatar_upload, blank=True)
+    bio = models.TextField(blank=True)
+    affiliation = models.CharField(max_length=100, blank=True)
+    location = models.CharField(max_length=100, blank=True)
+    website = models.CharField(max_length=250, blank=True)
+    twitter_username = models.CharField("Twitter Username", max_length=100, blank=True)
 
-    created_at = models.DateTimeField(default=timezone.now, null=True)
-    modified_at = models.DateTimeField(default=timezone.now, null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    modified_at = models.DateTimeField(default=timezone.now)
 
     def save(self, *args, **kwargs):
         self.modified_at = timezone.now()
