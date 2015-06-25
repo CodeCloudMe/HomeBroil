@@ -5,6 +5,7 @@ from django.db import models
 from django.utils import timezone
 
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 def avatar_upload(instance, filename):
@@ -15,7 +16,7 @@ def avatar_upload(instance, filename):
 
 class Profile(models.Model):
 
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=75, null=True)
     avatar = models.ImageField(upload_to=avatar_upload, null=True)
     bio = models.TextField(null=True)
