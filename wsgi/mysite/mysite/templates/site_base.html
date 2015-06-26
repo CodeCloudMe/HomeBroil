@@ -6,6 +6,7 @@
 
 
 {% block style_base %}
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700%7CKristi%7CNixie+One' rel='stylesheet' type='text/css'>
     <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
     <link href="{% static "css/site.css" %}" rel="stylesheet">
     {% block extra_style %}{% endblock %}
@@ -35,6 +36,10 @@
 
 
 {% block script_base %}
+
+    
+
+
     <script src="{% block jquery_src %}{% static "pinax/js/jquery.js" %}{% endblock %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "pinax/js/theme.js" %}"></script>

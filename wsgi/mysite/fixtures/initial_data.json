@@ -4,7 +4,7 @@
         "model": "sites.site",
         "fields": {
             "domain": "lo",
-            "name": "Starter Project"
+            "name": "Homebroil"
         }
     },
     {
@@ -12,7 +12,7 @@
         "model": "sites.site",
         "fields": {
             "domain": "homefries-reslift.rhcloud.com",
-            "name": "Starter Project"
+            "name": "Homebroil"
         }
     }
 ]

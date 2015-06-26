@@ -1,3 +1,16 @@
+<div class="background-holder">
+
+   
+
+    <div class = "headline-container">
+        <div class="headline-style-1 parallax-title">
+                <h1 class="text-white">H o m e B r o i l</h1>
+                <span class="sub-title text-white">Home-cooked Food On-Demand</span>
+
+        </div>
+
+    </div>
+
 {% extends "site_base.html" %}
 
 {% load i18n %}
@@ -8,18 +21,17 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-    <h1>Teams / Wiki Demo</h1>
+   
 
-    <p class="lead">
-        A demo of <b>pinax-project-teams</b> with per-user and per-team wiki.
-    </p>
+  
 
     {% if ACCOUNT_OPEN_SIGNUP %}
-        <div>
+       <!-- <div>
             <a class="btn btn-default" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a>
             or
             <a class="btn btn-default" href="{% url 'account_login' %}">{% trans "Log in" %}</a>
-        </div>
+        </div>-->
     {% endif %}
 
 {% endblock %}
+</div>
