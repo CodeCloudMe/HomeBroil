@@ -49,7 +49,7 @@
             	   {{ form.rating|bootstrap }}
             	<!-- <input name="userName" id="userName" type="text">-->
             	 <input name="profileName" value="1" style="display:none">            	 
-            	 <input name="profileId" value="1" style="display:none">
+            	 <input name="profileId" id="id_profileName" value="1" style="display:none">
             	 <input name="grubId" value="2" style="display:none">
             	 <input name="userId" value="1" style="display:none">
             	 <input name="userName" id="userName" style="display:none" >
@@ -74,9 +74,10 @@
 			
 				userName = window.location.href.split('/stars/')[1].split('/')[0];
 
+				$('#id_profileName').val(userName)
 				uN =localStorage.getItem('userName');
 				$('#userName').val(uN);
-	$('#id_profileName').val(userName)
+	
 
 		$('.usersRating').raty({ score: 3 });
 	}, 500)

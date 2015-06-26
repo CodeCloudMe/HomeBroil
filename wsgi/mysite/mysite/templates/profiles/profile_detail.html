@@ -76,23 +76,68 @@
             </div>
         </div>
         <!--wiki_for profile.user as wiki -->
-        {% include "_latest_wikis.html" %}
-hhee
-         
+      <h1>Cooking Rating</h1>
 
-           hello world
-
+<div id="allRatings">
   {% for star_rating in star_rating %}
 
 
-  <div class = "tata">
- hello
-    {{ star_rating.rating }}
-  </div>
+              <div class = "tata" rating = "{{ star_rating.rating }}" style="display:none">{{ star_rating.rating }}
+              </div>
 
-  <br><br><hr><br><br>
+
+<div class = "tata1" rating = "{{ star_rating.rating }}" style="display:none">{{ star_rating.profileName }}
+              </div>
+
+
    {% endfor %}
+</div>
 
+
+<script>
+
+
+
+    function countRating(){
+
+        userProfile = $('.fa-user').parent().text().replace(' ', '');
+
+    overallRating = 0;
+    numberTata = 0;
+
+    theRating=1;
+    $.each('.tata', function(index){
+
+        numberTata = numberTata +1;
+       // console.log($('.tata:nth('+index+')').html())
+             //thisRating = parseInt($(this).attr('rating').html());
+
+        thisRating = parseInt($('.tata:nth('+index+')').html());
+        overallRating= overallRating+ thisRating;
+
+
+    })
+
+    theRating= overallRating/numberTata;
+    makeStars(theRating);
+    //alert(theRating);
+    }
+
+
+    function makeStars(rT){
+
+        $('#allRatings').raty({ score: rT});
+
+    }
+
+
+
+
+    setTimeout(function(){
+
+        countRating();
+    }, 1000)
+</script>
 
     </div>
 {% endblock %}
