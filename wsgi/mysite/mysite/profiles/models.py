@@ -50,4 +50,6 @@ class Profile(models.Model):
         else:
             return self.user.username
 
-    #post_save.connect(create_profile, sender=User)
+    if 'OPENSHIFT_APP_NAME' in os.environ:
+        post_save.connect(create_profile, sender=User)
+
