@@ -157,6 +157,7 @@ INSTALLED_APPS = [
     "mysite.profiles",
 
     "food",
+    "star_rating"
     #"south"
 ]
 

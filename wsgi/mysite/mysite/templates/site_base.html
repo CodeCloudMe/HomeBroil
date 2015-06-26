@@ -7,6 +7,9 @@
 
 {% block style_base %}
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700%7CKristi%7CNixie+One' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{% static "lib/jquery.raty.css" %}">
+
     <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
     <link href="{% static "css/site.css" %}" rel="stylesheet">
     {% block extra_style %}{% endblock %}
@@ -46,5 +49,6 @@
     <script src="{% static "js/jquery.ui.widget.js" %}"></script>
     <script src="{% static "js/jquery.fileupload.js" %}"></script>
     <script src="{% static "js/app.js" %}"></script>
+     <script src="{% static "lib/jquery.raty.js" %}"></script>
     {% block extra_script %}{% endblock %}
 {% endblock %}

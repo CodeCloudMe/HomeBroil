@@ -1,0 +1,86 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap %}
+{% load thumbnail %}
+
+{% block body_class %}grubs{% endblock %}
+
+{% block head_title %}Create Grub{% endblock %}
+
+{% block extra_style %}
+   <style type="text/css">
+    .btn-avatar {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-avatar input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: translate(-300px, 0) scale(4);
+        font-size: 23px;
+        direction: ltr;
+        cursor: pointer;
+    }
+    .remove input {
+        float:left;
+        margin-right: 10px;
+    }
+    </style>
+
+
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-md-4">
+           
+
+
+            <form class="form profile-form" action="" method="POST">
+
+            	 {% csrf_token %}
+
+            	   {{ form.rating }}
+            	<!-- <input name="userName" id="userName" type="text">-->
+            	 {{ form.userName }}
+            	<!-- <input name="profileId" value="1">-->
+            	 <!--<input name="grubId" value="2">-->
+
+            	              	  <button type="submit" class="btn btn-primary">Save</button>
+            	 
+            </form>
+<div class="usersRating" style="width:300px; height:100px">
+
+
+</div>
+
+
+        </div>
+        <!--wiki_for profile.user as wiki -->
+       
+    </div>
+<script>
+
+	setTimeout(function(){
+			
+				userName = window.location.href.split('/stars/')[1].split('/')[0];
+	$('#id_userName').val(userName)
+
+		$('.usersRating').raty({ score: 3 });
+	}, 500)
+
+
+
+	
+
+</script>
+{% endblock %}
+
+
+

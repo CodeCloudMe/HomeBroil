@@ -6,7 +6,7 @@ from django.utils import timezone
 
 import os
 import random, string
-
+#from djangoratings.fields import RatingField
 # Create your models here.
 
 def food_upload(instance, filename):
@@ -26,6 +26,8 @@ class Grub(models.Model):
     price = models.IntegerField(blank=True)
     feeds = models.IntegerField(blank=True)
     location = models.CharField(max_length=200, blank=True)
+    #rating = RatingField(range=5) # 5 possible rating values, 1-5
+
 
 
     def save(self, *args, **kwargs):

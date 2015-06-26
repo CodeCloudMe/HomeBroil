@@ -7,7 +7,7 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 from django.conf import settings
-
+from djangoratings.fields import RatingField
 
 def avatar_upload(instance, filename):
     ext = filename.split(".")[-1]
@@ -29,6 +29,8 @@ class Profile(models.Model):
 
     created_at = models.DateTimeField(default=timezone.now)
     modified_at = models.DateTimeField(default=timezone.now)
+    #rating = RatingField(range=5) # 5 possible rating values, 1-5
+    
 
     def save(self, *args, **kwargs):
         self.modified_at = timezone.now()
