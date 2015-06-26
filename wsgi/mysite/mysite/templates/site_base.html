@@ -50,5 +50,19 @@
     <script src="{% static "js/jquery.fileupload.js" %}"></script>
     <script src="{% static "js/app.js" %}"></script>
      <script src="{% static "lib/jquery.raty.js" %}"></script>
+
+     <script>
+     userName= $('.fa-user').parent().text()
+     localStorage.setItem('userName', userName);
+
+     </script>
     {% block extra_script %}{% endblock %}
 {% endblock %}
+
+
+{% if request.user.is_authenticated %}
+
+         <a href="{% url 'profiles_detail' %}" id="marD" style="display:none">
+
+         {% endif %}
+ 

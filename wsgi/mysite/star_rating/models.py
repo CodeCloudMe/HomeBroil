@@ -1,6 +1,7 @@
 from django.db import models
+import uuid
 #from django.db.models.signals import post_save
-#from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 #from django.db.models.signals import post_save
 from django.utils import timezone
 
@@ -15,9 +16,9 @@ import os
 class Star_rating(models.Model):
     profileId = models.IntegerField(blank=True)
     profileName = models.CharField(max_length=200, blank=True)
-    grubId = models.IntegerField(default=1)
+    grubId = models.IntegerField(blank=True)
     date_rated = models.DateTimeField('date rated', blank=True)
-    userId = models.IntegerField(default=1)
+    userId = models.IntegerField(blank=True)
     userName = models.CharField(max_length=200, blank=True)
     rating = models.IntegerField(blank=True)
     
@@ -26,8 +27,8 @@ class Star_rating(models.Model):
 
 
     def save(self, *args, **kwargs):
-        #self.date_rated = timezone.now()
-        #self.userId = 1
+        self.date_rated = timezone.now()
+        #self.userId =  request.user.id
         #self.userName="hello"
         #self.grubId=2
         #self.profileName="mike"

@@ -2,6 +2,7 @@
 
 {% load wiki_tags %}
 
+
 {% block head_title %}{{ profile.display_name }}{% endblock %}
 
 {% load thumbnail %}
@@ -76,5 +77,22 @@
         </div>
         <!--wiki_for profile.user as wiki -->
         {% include "_latest_wikis.html" %}
+hhee
+         
+
+           hello world
+
+  {% for star_rating in star_rating %}
+
+
+  <div class = "tata">
+ hello
+    {{ star_rating.rating }}
+  </div>
+
+  <br><br><hr><br><br>
+   {% endfor %}
+
+
     </div>
 {% endblock %}

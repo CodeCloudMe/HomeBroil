@@ -19,6 +19,7 @@ class RatingForm(forms.ModelForm):
             "userName",
             "date_rated",
             "rating",
+            "grubId"
             
         ]
     

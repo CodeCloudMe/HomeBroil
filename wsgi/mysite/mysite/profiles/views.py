@@ -8,6 +8,12 @@ from account.mixins import LoginRequiredMixin
 from .forms import ProfileForm
 from .models import Profile
 
+from django.db import models
+#import star_rating 
+from star_rating.models import Star_rating
+
+#import star_rating
+
 
 class ProfileEditView(LoginRequiredMixin, UpdateView):
 
@@ -32,6 +38,11 @@ class ProfileDetailView(DetailView):
     slug_url_kwarg = "username"
     slug_field = "user__username"
     context_object_name = "profile"
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ProfileDetailView, self).get_context_data(**kwargs)
+        ctx['star_rating'] = Star_rating.objects.all()
+        return ctx
 
 
 class ProfileListView(ListView):

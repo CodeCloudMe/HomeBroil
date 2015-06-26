@@ -5,6 +5,7 @@ from django import forms
 from .models import Profile
 
 
+
 class ProfileForm(forms.ModelForm):
 
     class Meta:
@@ -18,6 +19,7 @@ class ProfileForm(forms.ModelForm):
             "website",
             "twitter_username",
         ]
+        #model1 = star_rating
 
     def clean_twitter_username(self):
         value = self.cleaned_data["twitter_username"]

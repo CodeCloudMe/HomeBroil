@@ -40,12 +40,12 @@ class StarRatingCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.rating = self.request.rating
-        self.object.profileId = self.request.profileId
-        self.object.profileName = self.request.profileName
-        self.object.userId = self.request.user
+        #self.object.rating = self.request.rating
+        #self.object.profileId = self.request.profileId
+        #self.object.profileName = self.request.profileName
+        #self.object.userId = self.request.user
         self.object.save()
-        return HttpResponseRedirect('/grub')
+        return HttpResponseRedirect('')
 
 
 class StarRatingListView(ListView):
