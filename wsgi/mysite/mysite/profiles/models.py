@@ -17,7 +17,8 @@ def avatar_upload(instance, filename):
 
 class Profile(models.Model):
 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    #user = models.OneToOneField(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(User)     
     name = models.CharField(max_length=75, blank=True)
     avatar = models.ImageField(upload_to=avatar_upload, blank=True)
     bio = models.TextField(blank=True)
