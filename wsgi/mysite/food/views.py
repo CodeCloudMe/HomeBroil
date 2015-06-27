@@ -82,11 +82,13 @@ class GrubListView(ListView):
             city = g.city(ip)
             if ip == '127.0.0.1':
                 city='Seoul'
+            if city == None:
+                city= 'Seoul, KR'
 
 
 
         else:
-            city = 'Rome' # default city
+            city = 'New York' # default city
 
         ctx['city'] = city
         #request.ip = ip
