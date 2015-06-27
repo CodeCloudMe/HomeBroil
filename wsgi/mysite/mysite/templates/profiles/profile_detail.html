@@ -93,30 +93,51 @@
    {% endfor %}
 </div>
 
+<div id="rateUser">
+    <button class="btn btn-primary" onclick="rateUser()">Rate me</button>
+
+    </div>
+
 
 <script>
 
 
+    function rateUser(){
+        userProfile = $('.fa-user').parent().text().replace(/\s/g, '');
+
+        window.location = "/stars/"+userProfile+"/add";
+
+
+    }
 
     function countRating(){
 
-        userProfile = $('.fa-user').parent().text().replace(' ', '');
+        userProfile = $('.fa-user').parent().text().replace(/\s/g, '');
 
     overallRating = 0;
     numberTata = 0;
 
     theRating=1;
-    $.each('.tata', function(index){
+    for(index=0; index < $('.tata').length; index++){
+        //index=index-1;
+         thisRating = parseInt($('.tata:nth('+index+')').html());
+       thisProfile = $(".tata1:nth("+index+")").text().replace(/\s/g, "");
+       console.log(thisProfile)
 
-        numberTata = numberTata +1;
+       if(thisProfile == userProfile){
+
+         numberTata = numberTata +1;
        // console.log($('.tata:nth('+index+')').html())
              //thisRating = parseInt($(this).attr('rating').html());
 
-        thisRating = parseInt($('.tata:nth('+index+')').html());
+       
         overallRating= overallRating+ thisRating;
 
+       }
+       
 
-    })
+
+    }
 
     theRating= overallRating/numberTata;
     makeStars(theRating);

@@ -83,6 +83,8 @@ STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "static"),
 ]
 
+GEOIP_PATH =  os.path.join(PACKAGE_ROOT, "static")
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = [
@@ -138,6 +140,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.staticfiles",
+    "django.contrib.gis.geoip",
 
     # theme
     "bootstrapform",

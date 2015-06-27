@@ -9,6 +9,7 @@
                             <h1 class="text-white">H o m e B r o i l</h1>
                             <span class="sub-title text-white">Home-cooked Food On-Demand</span>
 
+
 </div>
 
 </div>
@@ -23,7 +24,7 @@
 
 {% block body %}
     {% if user.is_authenticated %}
-
+        {{request.ip}}
         {% available_teams as available_teams %}
         {% if user.memberships.exists or available_teams %}
             <div class="dashboard-panel">

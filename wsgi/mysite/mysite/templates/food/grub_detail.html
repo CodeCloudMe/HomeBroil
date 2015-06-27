@@ -11,7 +11,7 @@
         <div class="col-md-4">
             <div class="profile-widget">
                 {% if grub.photo %}
-                    <img class="img-polaroid avatar hidden-phone" src="{% thumbnail grub.photo 160x160 crop %}" alt="{{ grub.title }}">
+                    <img class="img-polaroid avatar hidden-phone" src="/site_media/media/{{ grub.photo }}" style="max-width:200px; max-height:200px" alt="{{ grub.title }}">
                 {% endif %}
 
                 <h2>{{ grub.title }}</h2>
@@ -35,7 +35,7 @@
                             <span class="dim">
                                 <i class="fa fa-map-marker"></i>
                             </span>
-                            {{ profile.location }}
+                            {{ grub.location }}
                         </div>
                     {% endif %}
                     {% if grub.website %}
@@ -61,13 +61,47 @@
                         </span>
                         {{ grub.pub_date }}
                     </div>
+
                     {% if request.user == grub.userId %}
-                        <a href="{% url 'profiles_edit' %}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> Edit Grub</a>
+
+
+                        <a href="{% url 'grubs_edit' %}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> Edit Grub</a>
                     {% endif %}
                 </div>
+
+
+                <div id="madeAlso">
                 <h4>This user also made</h4>
 
+                {% for grubI in grubbers %}
+                  
+                  {% if grubI.userId == grub.userId %}
+                  <a href="{% url 'grubs_detail' id=grubI.id %}">
+                   {% if grubI.photo %}
+                    <img class="img-polaroid avatar hidden-phone" src="/site_media/media/{{ grubI.photo }}" style= "max-height:200px; max-width:200px" alt="{{ grub.title }}">
+                {% endif %}
+
+                <h3>{{ grubI.title }}</h3>
+                </a>
+
+                  {% endif %}
+
+                {% endfor %}
+
             </div>
+            </div>
+        </div>
+
+        
+        <div id="featured_photo">
+            {% if grub.photo %}
+                    <img class="img-polaroid avatar hidden-phone" src="/site_media/media/{{ grub.photo }}" style="max-width:50%; min-height:300px" alt="{{ grub.title }}">
+                {% endif %}
+
+            <br>
+           <br>
+            <button class="btn btn-primary">Order This Now</button>
+
         </div>
         <!--wiki_for profile.user as wiki -->
        

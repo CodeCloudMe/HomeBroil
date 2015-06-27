@@ -58,6 +58,11 @@ class GrubDetailView(DetailView):
     slug_field = "id"
     context_object_name = "grub"
 
+    def get_context_data(self, **kwargs):
+        ctx = super(GrubDetailView, self).get_context_data(**kwargs)
+        ctx['grubbers'] = Grub.objects.all()
+        return ctx
+
 
 class GrubEditView(LoginRequiredMixin, UpdateView):
 

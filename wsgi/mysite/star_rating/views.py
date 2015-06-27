@@ -45,7 +45,7 @@ class StarRatingCreateView(LoginRequiredMixin, CreateView):
         #self.object.profileName = self.request.profileName
         #self.object.userId = self.request.user
         self.object.save()
-        return HttpResponseRedirect('')
+        return HttpResponseRedirect('/grub')
 
 
 class StarRatingListView(ListView):

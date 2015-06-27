@@ -29,7 +29,7 @@ urlpatterns = patterns(
 
     url(r"^profile/edit/", ProfileEditView.as_view(), name="profiles_edit"),
     url(r"^u/$", ProfileListView.as_view(), name="profiles_list"),
-    url(r"^grub/(?P<id>[\w\._-]+)/$", GrubDetailView.as_view(), name="grubs_detail"),
+    url(r"^grub/(?P<id>[\w\._-]+)/$", GrubDetailView.as_view(),  name="grubs_detail"),
     url(r"^stars/(?P<profileName>[\w\._-]+)/add/$", StarRatingCreateView.as_view(), name="ratings_create"),
     url(r"^stars/(?P<profileName>[\w\._-]+)/$", StarRatingListView.as_view(), name="rating_details"),
     url(r"^u/(?P<username>[\w\._-]+)/$", ProfileDetailView.as_view(), name="profiles_detail"),
