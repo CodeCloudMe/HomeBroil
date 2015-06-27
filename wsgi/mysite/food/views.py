@@ -81,7 +81,10 @@ class GrubListView(ListView):
         if ip:
             city = g.city(ip)
             if ip == '127.0.0.1':
-                city='Seoul'
+                city=city
+            else:
+                city = city['city']
+                
             if city == None:
                 city= 'Seoul, KR'
 
