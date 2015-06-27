@@ -7,7 +7,7 @@
 {% block body %}
 
 
-<h1>Food Available Now </h1>
+<h1>Food Available Now in {{city}}</h1>
 
 <div class="row">
 	<br>
@@ -16,6 +16,8 @@
 		<br>
 
 		<hr>
+
+
         {% for grub in grubs %}
             <div class="col-md-3">
                 <div class="media" style="margin-bottom: 16px;">
@@ -37,8 +39,17 @@
         {% endfor %}
     </div>
 
+<!--
+<script>
 
+    setTimeout(function(){
+          city=  $('#theCity2').html()
+          $('.navbar-brand').append(' | '+city)
 
+      }, 500)
+</script>
+
+-->
 
 {% endblock %}
 

@@ -66,15 +66,46 @@
                         <a href="{% url 'profiles_edit' %}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i> Edit Profile</a>
                     {% endif %}
                 </div>
-                <h4>Teams</h4>
-                {% for membership in profile.user.memberships.all %}
-                    <a href="{% url 'team_detail' membership.team.slug %}">{{ membership.team.name }}</a>
-                    {% if not forloop.last %}&bull;{% endif %}
-                {% empty %}
-                    <p>None.</p>
+               
+            </div>
+
+
+
+
+
+
+     <div id="madeBefore">
+
+            <h1>I made... </h1>
+            
+
+            <div id="whatMade">
+            {% for grubI in grubbers %}
+                  
+                  {% if grubI.userId == request.user %}
+                  <a href="{% url 'grubs_detail' id=grubI.id %}">
+                   {% if grubI.photo %}
+                    <img class="img-polaroid avatar hidden-phone" src="/site_media/media/{{ grubI.photo }}" style= "max-height:200px; max-width:200px" alt="{{ grub.title }}">
+                {% endif %}
+
+                <h3>{{ grubI.title }}</h3>
+                </a>
+
+                  {% endif %}
+
                 {% endfor %}
+
             </div>
         </div>
+
+
+
+
+
+        </div>
+
+
+
         <!--wiki_for profile.user as wiki -->
       <h1>Cooking Rating</h1>
 
@@ -92,11 +123,15 @@
 
    {% endfor %}
 </div>
-
+  {% if request.user != profile.user %}
 <div id="rateUser">
     <button class="btn btn-primary" onclick="rateUser()">Rate me</button>
 
     </div>
+
+    {% endif %}
+
+
 
 
 <script>
@@ -152,11 +187,19 @@
     }
 
 
+    function whatMade(){
+
+        if($('#whatMade').html().replace(/\s/g, "").length < 1){
+            $('#madeBefore').html("<h3>I haven't uploaded any meals yet.</h3>")
+
+        }
+    }
 
 
     setTimeout(function(){
 
         countRating();
+        whatMade()
     }, 1000)
 </script>
 

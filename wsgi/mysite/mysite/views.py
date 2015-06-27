@@ -13,14 +13,38 @@ def homepage(request):
     	#g = geoip.HAS_GEOIP
     	g = GeoIP()
     	ip = request.META.get('REMOTE_ADDR', None)
+    	if ip == '127.0.0.1':
+    		city='Seoul'
     	if ip:
     		city = g.city(ip)
+    		if ip == '127.0.0.1':
+    		    city='Seoul'
+
+
+
     	else:
     		city = 'Rome' # default city
 
         request.city = city
         request.ip = ip
-        
+
         return render(request, "dashboard.html")
     else:
+    	#g = geoip.HAS_GEOIP
+    	g = GeoIP()
+    	ip = request.META.get('REMOTE_ADDR', None)
+    	if ip == '127.0.0.1':
+    		city='Seoul'
+    	if ip:
+    		city = g.city(ip)
+    		if ip == '127.0.0.1':
+    		    city='Seoul'
+
+
+
+    	else:
+    		city = 'Rome' # default city
+
+        request.city = city
+        request.ip = ip
         return render(request, "homepage.html")

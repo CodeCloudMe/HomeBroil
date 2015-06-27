@@ -11,6 +11,9 @@ from .models import Profile
 from django.db import models
 #import star_rating 
 from star_rating.models import Star_rating
+from django.contrib.gis.geoip.base import GeoIP
+
+from food.models import Grub
 
 #import star_rating
 
@@ -42,6 +45,7 @@ class ProfileDetailView(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super(ProfileDetailView, self).get_context_data(**kwargs)
         ctx['star_rating'] = Star_rating.objects.all()
+        ctx['grubbers'] = Grub.objects.all()
         return ctx
 
 
@@ -49,3 +53,23 @@ class ProfileListView(ListView):
 
     model = Profile
     context_object_name = "profiles"
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ProfileListView, self).get_context_data(**kwargs)
+        ctx['ip'] = self.request.META.get('REMOTE_ADDR', None)
+        g = GeoIP()
+        ip =  self.request.META.get('REMOTE_ADDR', None)
+        if ip == '127.0.0.1':
+            city='Seoul'
+        if ip:
+            city = g.city(ip)
+            if ip == '127.0.0.1':
+                city='Seoul'
+
+
+
+        else:
+            city = 'Rome' # default city
+
+        ctx['city'] = city
+        return ctx

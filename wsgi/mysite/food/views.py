@@ -31,7 +31,7 @@ from django.contrib import messages
 from account.decorators import login_required
 from account.mixins import LoginRequiredMixin
 
-
+from django.contrib.gis.geoip.base import GeoIP
 
 class GrubCreateView(LoginRequiredMixin, CreateView):
 
@@ -47,8 +47,51 @@ class GrubCreateView(LoginRequiredMixin, CreateView):
 
 class GrubListView(ListView):
 
+
     model = Grub
     context_object_name = "grubs"
+
+    def getLoc(request):
+        g = GeoIP()
+        ip = request.META.get('REMOTE_ADDR', None)
+        if ip == '127.0.0.1':
+            city='Seoul'
+        if ip:
+            city = g.city(ip)
+            if ip == '127.0.0.1':
+                city='Seoul'
+
+
+
+        else:
+            city = 'Rome' # default city
+
+        request.city = city
+        request.ip = ip
+
+    def get_context_data(self, **kwargs):
+
+
+        ctx = super(GrubListView, self).get_context_data(**kwargs)
+        ctx['ip'] = self.request.META.get('REMOTE_ADDR', None)
+        g = GeoIP()
+        ip =  self.request.META.get('REMOTE_ADDR', None)
+        if ip == '127.0.0.1':
+            city='Seoul'
+        if ip:
+            city = g.city(ip)
+            if ip == '127.0.0.1':
+                city='Seoul'
+
+
+
+        else:
+            city = 'Rome' # default city
+
+        ctx['city'] = city
+        #request.ip = ip
+
+        return ctx
 
 
 class GrubDetailView(DetailView):

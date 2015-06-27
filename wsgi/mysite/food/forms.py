@@ -9,6 +9,10 @@ from .models import Grub
 
 
 class GrubForm(forms.ModelForm):
+    
+    
+    
+
 
     class Meta:
         model = Grub
@@ -22,6 +26,8 @@ class GrubForm(forms.ModelForm):
             "price",
             "location",
         ]
+
+
     
     """
     def create_grub(sender, **kw):

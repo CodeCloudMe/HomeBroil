@@ -55,11 +55,13 @@
                         {% endif %}
                         <span class="btn btn-success btn-avatar btn-small">
                             <span>Select File</span>
-                            <input id="id_avatar" name="photo" type="file">
+                            <input id="id_avatar" name="photo" type="file" required>
                         </span>
                         <span class="selected-filename"></span>
                     </div>
                 </div>
+
+                <input type="hidden" id="userName" name="userName2">
 
                 {{ form.description|bootstrap }}
                 <br>
@@ -84,4 +86,13 @@
             </form>
         </div>
     </div>
+
+    <script>
+
+        setTimeout(function(){
+
+            $('#userName').val(userName.replace(/\s/g, ''));
+        }, 1000)
+
+    </script>
 {% endblock %}

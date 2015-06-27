@@ -1,15 +1,17 @@
-<div class="background-holder">
+<div class="background-holder" style="max-height:100%; overflow:hidden">
 
    
 
     <div class = "headline-container">
         <div class="headline-style-1 parallax-title">
                 <h1 class="text-white">H o m e B r o i l</h1>
-                <span class="sub-title text-white">Home-cooked Food On-Demand</span>
+                <span class="sub-title text-white" style="text-shadow:2px 2px #000; font-size:40px; margin-top:64%" id="onDemand">Home-cooked Food On-Demand</span>
 
         </div>
 
     </div>
+
+
 
 {% extends "site_base.html" %}
 
@@ -32,6 +34,15 @@
             <a class="btn btn-default" href="{% url 'account_login' %}">{% trans "Log in" %}</a>
         </div>-->
     {% endif %}
+     <div id="theCity" style="display:none">{{request.city}}</div>
+    <script>
+    setTimeout(function(){
+          city=  $('#theCity').html()
+          $('.navbar-brand').append(' | '+city)
 
+      }, 500)
+
+
+</script>
 {% endblock %}
 </div>

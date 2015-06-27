@@ -71,7 +71,7 @@
 
 
                 <div id="madeAlso">
-                <h4>This user also made</h4>
+                <h4><a href="" class="toUser">{{grub.userId }}</a> also made</h4>
 
                 {% for grubI in grubbers %}
                   
@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        
+
         <div id="featured_photo">
             {% if grub.photo %}
                     <img class="img-polaroid avatar hidden-phone" src="/site_media/media/{{ grub.photo }}" style="max-width:50%; min-height:300px" alt="{{ grub.title }}">
@@ -106,4 +106,13 @@
         <!--wiki_for profile.user as wiki -->
        
     </div>
+
+    <script>
+
+        setTimeout(function(){
+
+                $('.toUser').attr('href', '/u/'+$('.toUser').text());
+        }, 500);
+
+    </script>
 {% endblock %}

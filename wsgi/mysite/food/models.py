@@ -35,10 +35,11 @@ class Grub(models.Model):
 
 
 
+
+
     def save(self, *args, **kwargs):
         self.pub_date = timezone.now()
         self.exp_date = timezone.now()
-        self.userId = User.objects.get()
         return super(Grub, self).save(*args, **kwargs)
 
 

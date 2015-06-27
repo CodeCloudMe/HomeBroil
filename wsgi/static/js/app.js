@@ -96,3 +96,9 @@ $(function() {
     });
     fileupload();
 });
+
+
+//javascript to make out css work on logo
+//for logo
+//$('.navbar-brand').css({"font-family":"Kristi','Nixie One','Raleway', Helvetica, Arial, sans-sub-title !important", 
+                        //"font-size":"23px"})
