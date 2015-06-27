@@ -16,11 +16,16 @@ def homepage(request):
     	if ip == '127.0.0.1':
     		city='Seoul'
     	if ip:
-    		city = g.city(ip)
-    		if ip == '127.0.0.1':
-    		    city='Seoul'
-    		if city == None:
-    			city= 'Seoul'
+            city = g.city(ip)
+            if ip == '127.0.0.1':
+                city=city
+            elif city == None:
+                city= 'Seoul'
+            else:
+                city = city['city']
+                
+            if city == None:
+                city= 'Seoul'
 
 
 
@@ -38,11 +43,16 @@ def homepage(request):
     	if ip == '127.0.0.1':
     		city='Seoul'
     	if ip:
-    		city = g.city(ip)
-    		if ip == '127.0.0.1':
-    		    city='Seoul'
-    		if city == None:
-    			city= 'Seoul'
+            city = g.city(ip)
+            if ip == '127.0.0.1':
+                city=city
+            elif city == None:
+                city= 'Seoul'
+            else:
+                city = city['city']
+                
+            if city == None:
+                city= 'Seoul, KR'
 
 
 
