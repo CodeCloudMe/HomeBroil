@@ -56,6 +56,7 @@ class ProfileListView(ListView):
 
     def get_context_data(self, **kwargs):
         ctx = super(ProfileListView, self).get_context_data(**kwargs)
+        ctx['star_rating'] = Star_rating.objects.all()
         ctx['ip'] = self.request.META.get('REMOTE_ADDR', None)
         g = GeoIP()
         ip =  self.request.META.get('REMOTE_ADDR', None)

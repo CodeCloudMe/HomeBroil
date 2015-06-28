@@ -12,6 +12,8 @@
     </div>
     <div class="row">
         {% for profile in profiles %}
+
+            
             <div class="col-md-3">
                 <div class="media" style="margin-bottom: 16px;">
                     {% if profile.avatar %}
@@ -40,9 +42,62 @@
                             {{ profile.location }}
                         </div>
                     {% endif %}
-                    </div>
+                    <div class="starRating">
+                {% for star_rating in star_rating%}
+
+                    {% if star_rating.profileName == profile.display_name%}
+                        <div class = "tata" rating = "{{ star_rating.rating }}" style="display:none">{{ star_rating.rating }}
+                        </div>
+
+
+                        <div class = "tata1" rating = "{{ star_rating.rating }}" style="display:none">{{ star_rating.profileName }}
+                        </div>
+
+                        
+
+                    {%endif%}
+
+                {%endfor%}
+                <div class="ratingSlot"></div>
                 </div>
+                    </div>
+
+                </div>
+                
+
+
             </div>
+
         {% endfor %}
     </div>
+
+    <script>
+
+    function doStars(){
+
+        $('.starRating').each( function(index){
+            index=index-1
+            totalScore = 0;
+            numGos=0;
+            $(this).find('.tata').each(function(){
+
+                totalScore= totalScore+ parseInt($(this).html())
+                console.log(totalScore)
+                numGos= numGos+1;
+            })
+
+            overallScore = totalScore/numGos;
+            $(this).find('.ratingSlot').raty({score:overallScore, readOnly:true});
+
+        })
+    }
+
+    setTimeout(function(){
+
+        doStars();
+
+    },500)
+
+
+    </script>
 {% endblock %}
