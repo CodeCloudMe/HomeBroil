@@ -1,21 +1,14 @@
-You can run this code locally or on OpenShift in the Cloud
-
-If you run this using OpenShift, you can keep code as-is and edit from there.
-
-If you are running this locally, you will need to use mysql lite.
-
-Please navigate to the wsgi/mysite/mysite/settings.py file and uncomment the first database array to be SQLite3.
-
-
-If you are running this locally, here is some documentation from Pinax:
-
-pinax-project-teams
+Homebroil: Home-cooked food on-demand
 ===================
 
-a starter project that has account management with profiles and teams
-and basic collaborative content (wikis).
+Demo: http://beta.homebroil.com
 
+This project was developed to create a "Uber for Food". Users can upload leftovers or newly created food and others nearby can order their food.
+This is a work-in-progress. Pull requests welcome! Collaborators wanted.
 
+This was built to work on your local machine, as well as OpenShift. To deploy to Openshift, first create a Django app. Pull down your base-code, overwrite your base-code with this code, and push back up. For some reason, using this repo as a source repo upon creation usually results in an error.
+
+This is a Pinax-based Django App with Bootstrap.
 
 Usage:
 
