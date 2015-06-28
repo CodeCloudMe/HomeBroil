@@ -51,9 +51,30 @@
     <script src="{% static "js/app.js" %}"></script>
      <script src="{% static "lib/jquery.raty.js" %}"></script>
 
+
+     <!-- fancybox -->
+
+     <script type="text/javascript" src="/static/bower_components/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<!-- Add fancyBox -->
+    <link rel="stylesheet" href="{% static "/static/bower_components/fancybox/source/jquery.fancybox.css" %}" type="text/css" media="screen" />
+    <script type="text/javascript" src="{% static "bower_components/fancybox/source/jquery.fancybox.pack.js" %}"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link rel="stylesheet" href="{% static "bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css" %}" type="text/css" media="screen" />
+    <script type="text/javascript" src="{% static "bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js" %}"></script>
+    <script type="text/javascript" src="{% static "bower_components/fancybox/source/helpers/jquery.fancybox-media.js" %}"></script>
+
+    <link rel="stylesheet" href="{% static "bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css" %}" type="text/css" media="screen" />
+    <script type="text/javascript" src="{% static "bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js" %}"></script>
+
      <script>
      userName= $('.fa-user').parent().text()
      localStorage.setItem('userName', userName);
+
+     $(document).ready(function() {
+        $(".fancybox").fancybox();
+    });
 
      </script>
     {% block extra_script %}{% endblock %}

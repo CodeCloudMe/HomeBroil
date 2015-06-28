@@ -7,6 +7,7 @@
 {% block body %}
 
 
+
 <h1>Food Available Now in {{city}}</h1>
 
 <div class="row">
@@ -22,7 +23,7 @@
             <div class="col-md-3">
                 <div class="media" style="margin-bottom: 16px;">
                     {% if grub.photo %}
-                        <img width="72" height="72" class="media-object pull-left" src="/site_media/media/{{ grub.photo }}" alt="{{ grub.title|default:user.username }}">
+                        <a href="/site_media/media/{{ grub.photo }}" class="fancybox"><img width="72" height="72" class="media-object pull-left" src="/site_media/media/{{ grub.photo }}" alt="{{ grub.title|default:user.username }}"></a>
                     {% else %}
                         <div class="default-avatar media-object pull-left">
                             <i class="fa fa-user fa-4x"></i>
