@@ -2,8 +2,10 @@
 *.sw[po]
 *.bak
 *.orig
-wsgi/mysite/mysite/site_media/*
-wsgi/mysite/static
+/wsgi/mysite/mysite/site_media/*
+/wsgi/mysite/mysite/site_media/
+/wsgi/site_media/*
+/wsgi/site_media/
 .project
 .pydevproject
 
