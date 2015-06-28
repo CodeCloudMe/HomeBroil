@@ -62,3 +62,5 @@ def homepage(request):
         request.city = city
         request.ip = ip
         return render(request, "homepage.html")
+
+        
