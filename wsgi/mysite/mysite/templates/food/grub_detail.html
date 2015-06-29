@@ -100,8 +100,13 @@
 
             <br>
            <br>
-            <button class="btn btn-primary">Order This Now</button>
+            <button class="btn btn-primary" onclick="orderNow()">Order This Now</button>
 
+            <div id="usersEmail" style="display:none">
+                <br><br>
+                This user prefers to be contacted via e-mail for orders. Please reach out to:<br>
+                <h3><a href="mailto:{{grub.userId.email}}">{{grub.userId.email}}</a></h3>
+            </div>
         </div>
         <!--wiki_for profile.user as wiki -->
        
@@ -109,6 +114,11 @@
 
     <script>
 
+
+    function orderNow(){
+
+        $('#usersEmail').fadeIn();
+    }
         setTimeout(function(){
 
                 $('.toUser').attr('href', '/u/'+$('.toUser').text());
