@@ -44,7 +44,8 @@ class ProfileDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         ctx = super(ProfileDetailView, self).get_context_data(**kwargs)
-        ctx['star_rating'] = Star_rating.objects.all()
+        #ctx['star_rating'] = Star_rating.objects.all()
+        ctx['star_rating'] = Star_rating.objects.filter(profileName=ctx['profile'].user)
         ctx['grubbers'] = Grub.objects.all()
         return ctx
 
@@ -57,6 +58,33 @@ class ProfileListView(ListView):
     def get_context_data(self, **kwargs):
         ctx = super(ProfileListView, self).get_context_data(**kwargs)
         ctx['star_rating'] = Star_rating.objects.all()
+
+        i=-1;
+        for profile in ctx['profiles']:
+            i = i+1
+            j=0
+            for star_rating in ctx['star_rating']:
+                
+                #print "blah=" + str(profile.user)
+                if str(profile.user) == star_rating.profileName:
+                    j=j+1
+                    
+                    try:
+                        ctx['profiles'][i].totalAmount = ctx['profiles'][i].totalAmount + star_rating.rating
+                        ctx['profiles'][i].starsCount = ctx['profiles'][i].starsCount +1
+                        #ctx['profiles'][i]['stars'] =1
+                        ctx['profiles'][i].stars =  float(ctx['profiles'][i].totalAmount/ctx['profiles'][i].starsCount)
+                        print ctx['profiles'][i].stars                                                
+                    except:
+                        print('except')
+                        setattr(ctx['profiles'][i], 'stars', int(star_rating.rating))
+                        setattr(ctx['profiles'][i], 'totalAmount', int(star_rating.rating))
+                        setattr(ctx['profiles'][i], 'starsCount', 1)
+
+                    #ctx['profiles'][i]['stars'] = 6
+
+
+        
         ctx['ip'] = self.request.META.get('REMOTE_ADDR', None)
         g = GeoIP()
         ip =  self.request.META.get('REMOTE_ADDR', None)

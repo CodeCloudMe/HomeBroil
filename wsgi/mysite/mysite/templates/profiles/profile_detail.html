@@ -147,7 +147,7 @@
 
     function countRating(){
 
-        userProfile = $('.fa-user').parent().text().replace(/\s/g, '');
+        userProfile = $('.profile-widget h2').text().replace(/\s/g, '');
 
     overallRating = 0;
     numberTata = 0;
@@ -159,7 +159,7 @@
        thisProfile = $(".tata1:nth("+index+")").text().replace(/\s/g, "");
        console.log(thisProfile)
 
-       if(thisProfile == userProfile){
+      // if(thisProfile == userProfile){
 
          numberTata = numberTata +1;
        // console.log($('.tata:nth('+index+')').html())
@@ -168,7 +168,7 @@
        
         overallRating= overallRating+ thisRating;
 
-       }
+     //  }
        
 
 
